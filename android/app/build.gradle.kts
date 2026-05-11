@@ -1,21 +1,14 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    // REMOVED the dev.flutter plugin ID to stop the crash at line 1
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id("dev.flutter.flutter-gradle-plugin")
 }
-
-// THIS PART MANUALLY LINKS TO THE FLUTTER SDK ALREADY ON YOUR DISK
-val localProperties = java.util.Properties()
-val localPropertiesFile = rootProject.file("../local.properties")
-if (localPropertiesFile.exists()) {
-    localPropertiesFile.inputStream().use { localProperties.load(it) }
-}
-val flutterRoot = localProperties.getProperty("flutter.sdk")
-apply(from = "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle")
 
 android {
-    namespace = "com.jk.hisabapp"
-    compileSdk = 34
+    namespace = "com.example.myhisabfresh"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -23,20 +16,29 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {
-        applicationId = "com.jk.hisabapp"
-        minSdkVersion(21)
-        targetSdkVersion(34)
-        versionCode = 1
-        versionName = "1.0.0"
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.example.myhisabfresh"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
     }
 
     buildTypes {
         release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+}
+
+flutter {
+    source = "../.."
 }

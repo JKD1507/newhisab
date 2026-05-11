@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# myhisab
+# myhisabfresh
 
 A new Flutter project.
 
@@ -16,7 +15,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-=======
-# myhisabapp
-Daily House Expenses Tracking System
->>>>>>> 173da94106f527e883a1483d90dcfd6c5ab9620e
