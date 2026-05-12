@@ -24,6 +24,11 @@ dependencies:
   excel: ^4.0.6             # For Data Export function
   share_plus: ^10.0.0       # For Backup/Sharing function
 
+  # --- QR Scanning & Payment (NEW) ---
+  mobile_scanner: ^5.1.0    # For decoding QR from jkqr.jpg
+  url_launcher: ^6.3.0      # To open GPay/UPI apps with scanned data
+  image_picker: ^1.1.0      # (Optional) For gallery selection
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -32,6 +37,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # Ensure your QR image and assets are registered here
+  # Asset registration
   assets:
     - assets/jkqr.jpg
